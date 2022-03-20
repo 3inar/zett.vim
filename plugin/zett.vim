@@ -3,6 +3,9 @@ command Newz :call NewZettel()
 command Newzl :call NewZettelLink()
 command Backl :call GrepBacklinks()
 
+" enables goto-file from links
+set suffixesadd=.md 
+
 " Places a zettel link to the current file in unnamed register (used by yank)
 function GrabLink()
   let $fn = expand("%:t")                       " get filename
@@ -31,8 +34,12 @@ endfunction
 
 " Creates a new zettel and links to it from origin
 function NewZettelLink()
-  call NewZettel()
-  call LinkFromPrev()
+  if &hidden
+    call NewZettel()
+    call LinkFromPrev()
+  else
+    echo "Must have hidden set for :Newlz to work"
+  endif
 endfunction
 
 function GrepBacklinks()
