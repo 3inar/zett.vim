@@ -2,6 +2,10 @@
 command Newz :call NewZettel()
 command Newzl :call NewZettelLink()
 command Backl :call GrepBacklinks()
+"
+" a custom yank that calls GrabLink 
+nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
+nmap ,h :call Head()<Enter>
 
 " enables goto-file from links
 set suffixesadd=.md 
@@ -15,8 +19,6 @@ function GrabLink()
   unlet $fn
 endfunction
 
-" a custom yank that calls GrabLink 
-nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
 
 " yank link to current file, jump to previous location, put, jump back
 function LinkFromPrev()
@@ -46,6 +48,12 @@ function GrepBacklinks()
   call GrabLink()
   exec ":vimgrep /" . escape(@", "[]") . "/j `find .`"
   copen
+endfunction
+
+" function to show head of file under cursor
+function Head()
+  norm yiw
+  exec "! head -n5" . @" . ".md"
 endfunction
 
 
