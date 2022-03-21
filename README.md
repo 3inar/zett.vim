@@ -20,6 +20,6 @@ Passive functionality:
 * Appends `.md` so that a link can be followed by `gf` (this is important!)
 
 ## TODO
-[ ] Natural language search 
-[ ] Link suggestion when writing `[[ something`
-[ ] Show "head" of linked file
+* [ ] Natural language search 
+* [ ] Link suggestion when writing `[[ something`
+* [ ] Show "head" of linked file
