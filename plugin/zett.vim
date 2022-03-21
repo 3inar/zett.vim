@@ -72,5 +72,5 @@ endfunction
 
 augroup ZettelHighlights
     autocmd!
-    autocmd bufread * call ZetLights()
+    autocmd BufRead,BufNewfile,BufWinEnter * call ZetLights()
 augroup END
