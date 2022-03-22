@@ -2,7 +2,7 @@
 command Newz :call NewZettel()
 command Newzl :call NewZettelLink()
 command Backl :call GrepBacklinks()
-"
+
 " a custom yank that calls GrabLink 
 nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
 nmap ,h :call Head()<Enter>
@@ -53,7 +53,7 @@ endfunction
 " function to show head of file under cursor
 function Head()
   norm yiw
-  exec "! head -n5" . @" . ".md"
+  exec "! head -n5 " . @" . ".md"
 endfunction
 
 
