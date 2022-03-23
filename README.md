@@ -24,4 +24,4 @@ Passive functionality:
   [fzf.vim](https://github.com/junegunn/fzf.vim)
 * [ ] Link suggestion when writing `[[ something`
 * [x] Show `head` of linked file
-* [ ] Extract visual mode selection to new note
+* [ ] Maybe: Extract visual mode selection to new note 

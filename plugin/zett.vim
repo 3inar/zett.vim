@@ -10,28 +10,33 @@ nmap ,h :call Head()<Enter>
 " enables goto-file from links
 set suffixesadd=.md 
 
+" saves a [[link]] to current buffer in its own variable
+function SaveLink()
+  let s:stored_link = expand("%:t")
+  let s:stored_link = substitute(s:stored_link, ".md", "", "")
+  let s:stored_link = eval(string("[[" . s:stored_link . "]]"))
+endfunction
+
 " Places a zettel link to the current file in unnamed register (used by yank)
 function GrabLink()
-  let $fn = expand("%:t")                       " get filename
-  let $fn = substitute($fn, ".md", "", "")      " strip off .md
-  let $fn = eval(string("[[" . $fn . "]]"))     " wrap in [[]]
-  let @"=$fn                                    " place in register 
-  unlet $fn
+  call SaveLink()
+  let @"=s:stored_link
 endfunction
 
 
 " yank link to current file, jump to previous location, put, jump back
 function LinkFromPrev()
-  execute "normal ,y\<C-o>p\<C-i>"      
+  call SaveLink()
+  execute "normal \<C-o>a " . s:stored_link . "\<Esc>\<C-i>"      
 endfunction
 
 " Creates a new zettel with link to where it  was created from
 function NewZettel()
-  normal ,y
+  call SaveLink()
   let $tstamp=strftime("%Y%m%d%H%M")
   e $tstamp.md
   unlet $tstamp
-  execute "normal i# New note started from \<Esc>p"
+  execute "normal i# New note started from " . s:stored_link
 endfunction
 
 " Creates a new zettel and links to it from origin
@@ -45,8 +50,8 @@ function NewZettelLink()
 endfunction
 
 function GrepBacklinks()
-  call GrabLink()
-  exec ":vimgrep /" . escape(@", "[]") . "/j `find .`"
+  call SaveLink()
+  exec ":vimgrep /" . escape(s:stored_link, "[]") . "/j `find .`"
   copen
 endfunction
 
