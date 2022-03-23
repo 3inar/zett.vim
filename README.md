@@ -20,7 +20,8 @@ Passive functionality:
 * Appends `.md` so that a link can be followed by `gf` (this is important!)
 
 ## TODO
-* ~~[ ] Natural language search~~ use `:Ag` or `:Rg` from
+* [ ] ~~Natural language search~~ use `:Ag` or `:Rg` from
   [fzf.vim](https://github.com/junegunn/fzf.vim)
 * [ ] Link suggestion when writing `[[ something`
-* [x] Show "head" of linked file
+* [x] Show `head` of linked file
+* [ ] Extract visual mode selection to new note
