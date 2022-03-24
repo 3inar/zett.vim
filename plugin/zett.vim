@@ -27,7 +27,7 @@ endfunction
 " yank link to current file, jump to previous location, put, jump back
 function LinkFromPrev()
   call SaveLink()
-  execute "normal \<C-o>a " . s:stored_link . "\<Esc>\<C-i>"      
+  execute "normal \<C-o>a " . s:stored_link . " \<Esc>\<C-i>"      
 endfunction
 
 " Creates a new zettel with link to where it  was created from
