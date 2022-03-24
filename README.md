@@ -25,3 +25,4 @@ Passive functionality:
 * [ ] Link suggestion when writing `[[ something`
 * [x] Show `head` of linked file
 * [ ] Maybe: Extract visual mode selection to new note 
+* [ ] Open random note
