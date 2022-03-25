@@ -14,6 +14,7 @@ Things you can do:
   shows the hits in a quickfix window.
 * `,y` places a wiki-style link to the current file in the unnamed register
   (the one used for yank).
+* `,h` shows the first  five lines of the file linked to under cursor
 
 Passive functionality:
 * Highlights for links, hashtags
