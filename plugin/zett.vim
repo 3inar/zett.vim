@@ -1,7 +1,7 @@
 " start a new zettel with the current timestamp as filename
 command Newz :call NewZettel()
 command Newzl :call NewZettelLink()
-command Backl :call GrepBacklinks()
+command Backlinks :call GrepBacklinks()
 
 " a custom yank that calls GrabLink 
 nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
@@ -51,7 +51,12 @@ endfunction
 
 function GrepBacklinks()
   call SaveLink()
-  exec ":vimgrep /" . escape(s:stored_link, "[]") . "/j `find .`"
+  if executable("ag")
+    exec "call setqflist([], ' ', {'lines' : systemlist('ag \""
+          \ . escape(s:stored_link, "[]") . "\"')})"
+  else
+    exec ":vimgrep /" . escape(s:stored_link, "[]") . "/j `find .`"
+  endif
   copen
 endfunction
 
