@@ -2,6 +2,7 @@
 command Newz :call NewZettel()
 command Newzl :call NewZettelLink()
 command Backlinks :call GrepBacklinks()
+command Randomzettel :call RandomZettel()
 
 " a custom yank that calls GrabLink 
 nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
@@ -23,8 +24,13 @@ function GrabLink()
   let @"=s:stored_link
 endfunction
 
+" open a random file from working directory
+function RandomZettel()
+  exec ':e ' . system("ls *.md | sort -R | tail -n1")
+endfunction
 
-" yank link to current file, jump to previous location, put, jump back
+
+" store link to this file, jump to previous location, put link there, jump back
 function LinkFromPrev()
   call SaveLink()
   execute "normal \<C-o>a " . s:stored_link . " \<Esc>\<C-i>"      

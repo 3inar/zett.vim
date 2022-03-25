@@ -10,8 +10,9 @@ Things you can do:
   wiki-style link to the file you had open when executing the command.
 * `:Newzl` does the same as `:Newz` but also inserts a wiki-style link (eg.,
   `[[202203201616]]`)to the new file in the old file.
-* `:Backl` searches the working directory for links to the current file and
+* `:Backlinks` searches the working directory for links to the current file and
   shows the hits in a quickfix window.
+* `:Randomzettel` opens a random note in current working directory
 * `,y` places a wiki-style link to the current file in the unnamed register
   (the one used for yank).
 * `,h` shows the first  five lines of the file linked to under cursor
@@ -26,4 +27,4 @@ Passive functionality:
 * [ ] Link suggestion when writing `[[ something`
 * [x] Show `head` of linked file
 * [ ] Maybe: Extract visual mode selection to new note 
-* [ ] Open random note
+* [x] Open random note
