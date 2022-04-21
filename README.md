@@ -29,3 +29,4 @@ Passive functionality:
 * [ ] Maybe: Extract visual mode selection to new note 
 * [x] Open random note
 * [x] Fix broken syntax highlighting for latex math in markdown
+* [ ] Command to mash out a pandoc-pdf of current note
