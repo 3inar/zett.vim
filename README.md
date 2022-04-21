@@ -28,3 +28,4 @@ Passive functionality:
 * [x] Show `head` of linked file
 * [ ] Maybe: Extract visual mode selection to new note 
 * [x] Open random note
+* [ ] Fix broken syntax highlighting for latex math in markdown
