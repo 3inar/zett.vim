@@ -78,11 +78,21 @@ function! ZetLights()
   if &ft == "markdown"
     highlight default link ZetLink mkdLinkDef
     highlight default link ZetTag Comment
+    highlight default link MathBlock Include
+    highlight default link MathInline Include
 
-    " containedin is crucial here; these will not match anything inside
+    " containedin is crucial below; these will not match anything inside
     " another highlight group without it
-    syntax match ZetTag /#\w\+/ containedin=ALL
-    syntax match ZetLink /\[\[\w\+\]\]/ containedin=ALL
+     
+    syntax region MathBlock start=/\$\$/ end=/\$\$/ 
+          \ containedin=mkdNonListItemBlock
+    syn match MathInline '\$[^$].\{-}\$' 
+          \ containedin=mkdNonListItemBlock,mkdListItemLine
+
+    syntax match ZetTag /#\w\+/ 
+          \ containedin=mkdNonListItemBlock,mkdListItemLine
+    syntax match ZetLink /\[\[\w\+\]\]/
+          \ containedin=mkdNonListItemBlock,mkdListItemLine
   endif
 endfunction
 
