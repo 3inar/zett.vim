@@ -18,7 +18,7 @@ Things you can do:
 * `,h` shows the first  five lines of the file linked to under cursor
 
 Passive functionality:
-* Highlights for links, hashtags
+* Highlights for links, hashtags, LaTex math (extremely basic, just patching up the very back standard markdown highlighting)
 * Appends `.md` so that a link can be followed by `gf` (this is important!)
 
 ## TODO
