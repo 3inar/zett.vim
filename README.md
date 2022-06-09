@@ -30,3 +30,5 @@ Passive functionality:
 * [x] Open random note
 * [x] Fix broken syntax highlighting for latex math in markdown
 * [ ] Command to mash out a pandoc-pdf of current note
+* [ ] Goto and create a note that's linked to but does not exist
+
