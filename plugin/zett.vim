@@ -6,7 +6,12 @@ command Randomzettel :call RandomZettel()
 
 " a custom yank that calls GrabLink 
 nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
+
+" shows head of linked file under cursor
 nmap ,h :call Head()<Enter>
+
+" Quicker way to show random note
+nmap ,r :call RandomZettel()<Enter>:echo ""<Enter>
 
 " enables goto-file from links
 set suffixesadd=.md 
@@ -51,7 +56,7 @@ function NewZettelLink()
     call NewZettel()
     call LinkFromPrev()
   else
-    echo "Must have hidden set for :Newlz to work"
+    echo "Must have hidden set for :Newzl to work"
   endif
 endfunction
 
