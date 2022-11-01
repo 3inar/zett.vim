@@ -13,6 +13,13 @@ nmap ,h :call Head()<Enter>
 " Quicker way to show random note
 nmap ,r :call RandomZettel()<Enter>:echo ""<Enter>
 
+" show backlinks
+nmap ,b :call GrepBacklinks()<Enter>:echo ""<Enter>
+
+" new notes
+nmap ,nn :call NewZettel()<Enter>:echo ""<Enter>
+nmap ,nl :call NewZettelLink()<Enter>:echo ""<Enter>
+
 " enables goto-file from links
 set suffixesadd=.md 
 
