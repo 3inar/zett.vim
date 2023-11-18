@@ -10,6 +10,9 @@ nmap ,y :call GrabLink()<Enter>:echo ""<Enter>
 " shows head of linked file under cursor
 nmap ,h :call Head()<Enter>
 
+" I use this for a running log file I keep
+nmap ,dt :put=strftime('## %Y - %B %d. %A.')<Enter>
+
 " Quicker way to show random note
 nmap ,r :call RandomZettel()<Enter>:echo ""<Enter>
 
