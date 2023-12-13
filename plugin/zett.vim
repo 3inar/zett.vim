@@ -85,7 +85,14 @@ endfunction
 " function to show head of file under cursor
 function Head()
   norm yiw
-  exec "! head -n5 " . @" . ".md"
+
+  if filereadable(@" . ".md")
+    exec "! head -n5 " . @" . ".md" 
+  elseif filereadable(@" . ".Rmd")
+    exec "! head -n5 " . @" . ".Rmd" 
+  else
+    echo "No such file."
+  endif
 endfunction
 
 
