@@ -42,7 +42,7 @@ endfunction
 
 " open a random file from working directory
 function RandomZettel()
-  exec ':e ' . system("ls *.md | sort -R | tail -n1")
+  exec ':e ' . system("ls *.md *.Rmd | sort -R | tail -n1")
 endfunction
 
 
