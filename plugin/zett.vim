@@ -24,12 +24,13 @@ nmap ,nn :call NewZettel()<Enter>:echo ""<Enter>
 nmap ,nl :call NewZettelLink()<Enter>:echo ""<Enter>
 
 " enables goto-file from links
-set suffixesadd=.md 
+set suffixesadd=.md,.Rmd
 
 " saves a [[link]] to current buffer in its own variable
 function SaveLink()
   let s:stored_link = expand("%:t")
-  let s:stored_link = substitute(s:stored_link, ".md", "", "")
+  " note the need for double backslash using this function...
+  let s:stored_link = substitute(s:stored_link, "\\v\\.(R)?md$", "", "")
   let s:stored_link = eval(string("[[" . s:stored_link . "]]"))
 endfunction
 
